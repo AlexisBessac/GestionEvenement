@@ -39,7 +39,7 @@ class Participant
     )]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 50, unique:true)]
+    #[ORM\Column(length: 50)]
     #[Assert\Email(
         message: 'L\'email  {{ value }} n\'est pas valide.',
     )]

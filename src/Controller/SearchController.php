@@ -26,7 +26,7 @@ class SearchController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $events = $evenementsRepository->findByTitle($data->getTitre());
+            $events = $evenementsRepository->findByTitre($data->getTitre());
         }
 
         

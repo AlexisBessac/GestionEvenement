@@ -12,7 +12,13 @@ class SearchFormDataType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
+        ->add('titre', null, [
+            'label' => false,
+            'required' => false,
+            'attr' => [
+                'placeholder' => 'Votre recherche'
+            ]
+        ])
         ;
     }
 

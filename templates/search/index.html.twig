@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SearchController!{% endblock %}
+{% block title %}Recherche{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/alexi/OneDrive/Bureau/symfony/GestionEvenement/src/Controller/SearchController.php</code></li>
-        <li>Your template at <code>C:/Users/alexi/OneDrive/Bureau/symfony/GestionEvenement/templates/search/index.html.twig</code></li>
-    </ul>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            {{ form(form_search) }}
+        </div>
+    </div>
+    <div class="row">
+        {% for events in events %}
+            <p class="text-center">{{ events.titre }}</p>
+        {% else %}
+            <p class="text-center">Aucun résultat</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
