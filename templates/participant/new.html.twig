@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau participant{% endblock %}
+
+{% block body %}
+
+    <style>
+        h1{
+            color: #318ce7;
+        }
+    </style>
+
+    <div class="container py-5">
+        <h1 class="text-center">Créer un nouveau particiapnt</h1>
+
+        <a href="{{ path('app_participant_index') }}" class="btn btn-primary my-2" title="Revenir à la liste des participants">Revenir à la liste des participants</a>
+
+        {% include 'participant/_form.html.twig' with {'button_label': 'Créer'} %}
+
+    </div>
+{% endblock %}

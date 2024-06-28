@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evénements{% endblock %}
+
+{% block body %}
+
+    <style>
+        h1{
+            color: #318ce7;
+        }
+    </style>
+
+    <div class="container py-5">
+        <h1 class="text-center">Evénement</h1>
+
+        <a href="{{ path('app_evenements_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des événements">Revenir à la liste des événements</a>
+
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evenement.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ evenement.titre }}</td>
+            </tr>
+            <tr>
+                <th>Date et Heure</th>
+                <td>{{ evenement.EventAt ? evenement.EventAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ evenement.lieu }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ evenement.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        {{ include('evenements/_delete_form.html.twig') }}
+    </div>
+    
+    </div>
+{% endblock %}

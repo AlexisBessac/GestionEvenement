@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des événements{% endblock %}
+
+{% block body %}
+
+    <style>
+        h1{
+            color: #318ce7;
+        }
+
+        .button-nowrap {
+            white-space: nowrap;
+        }
+    </style>
+
+    <div class="container py-5">
+        <h1 class="text-center">Liste des Evénements</h1>
+
+    <a href="{{ path('app_evenements_new') }}" class="btn btn-primary my-2" title="Créer un événement">Créer un événement</a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Date et heure</th>
+                <th>Lieu</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.titre }}</td>
+                <td class="d-flex">{{ evenement.EventAt ? evenement.EventAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ evenement.lieu }}</td>
+                <td>{{ evenement.description }}</td>
+                <td class="d-flex">
+                    <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}" class="btn btn-outline-primary mx-2 button-nowrap" title="Voir le détail">Voir le détail</a>
+                    <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}" class="btn btn-outline-success" title="Modifier">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun événement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+{% endblock %}

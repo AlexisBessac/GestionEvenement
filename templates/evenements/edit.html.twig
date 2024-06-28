@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un événement{% endblock %}
+
+{% block body %}
+
+    <style>
+        h1{
+            color: #318ce7;
+        }
+    </style>
+
+    <div class="container py-5">
+        <h1 class="text-center">Modifier un événement</h1>
+
+        <a href="{{ path('app_evenements_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des événements">Revenir à la liste des événements</a>
+    
+    
+        {{ include('evenements/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    </div>
+{% endblock %}

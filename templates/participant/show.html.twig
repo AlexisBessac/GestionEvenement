@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participant{% endblock %}
+
+{% block body %}
+
+    <style>
+        h1{
+            color: #318ce7;
+        }
+    </style>
+
+    <div class="container py-5">
+    <h1 class="text-center">Participant</h1>
+
+    <a href="{{ path('app_participant_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des participants">Revenir à la liste des participants</a>
+
+
+    <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ participant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ participant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ participant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ participant.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+
+        {{ include('participant/_delete_form.html.twig') }}
+    </div>
+  
+    </div>
+{% endblock %}

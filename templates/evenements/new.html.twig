@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un événement{% endblock %}
+
+{% block body %}
+    
+    <style>
+        h1{
+            color: #318ce7;
+        }
+    </style>
+
+    <div class="container py-5">
+        <h1 class="text-center my-2" title="Créer un événement">Créer un nouvel événement</h1>
+
+        <div class="d-flex justify-content-start my-2">
+            <a href="{{ path('app_evenements_index') }}" class="btn btn-primary" title="Revenir à la liste des événements">Revenir à la liste des événements</a>
+        </div>
+
+        {{ include('evenements/_form.html.twig', {'button_label': 'Créer'}) }}
+
+    </div>
+{% endblock %}
