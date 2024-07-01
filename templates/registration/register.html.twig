@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}S'inscire{% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
 {% block body %}
 
@@ -10,8 +10,8 @@
         }
     </style>
 
-    <div class="container py-5">
-        <h1 class="text-center">S'inscrire</h1>
+   <div class="container py-5">
+    <h1 class="text-center">S'inscrire</h1>
 
     {{ form_errors(registrationForm) }}
 
@@ -24,5 +24,5 @@
 
         <button type="submit" class="btn btn-primary">S'inscrire</button>
     {{ form_end(registrationForm) }}
-    </div>
+   </div>
 {% endblock %}
