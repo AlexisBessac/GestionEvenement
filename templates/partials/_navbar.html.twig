@@ -1,27 +1,27 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="{{ path('app_home_index') }}"title="Planify">Planify</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link active" href="{{ path('app_evenements_index') }}" aria-current="page" title="Evenement">Evenement <span
-                          class="visually-hidden">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ path('app_participant_index') }}" title="Participant">Participant</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ path('app_search') }}" title="Recherche">Recherche</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ path('app_register') }}" title="S'inscire">S'inscrire</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{path('app_login')}}" class="nav-link" title="Se Connecter">Se connecter</a>
-          </li>
-          </ul>
-      </div>
+        <a class="navbar-brand" href="{{ path('app_home_index') }}" title="Planify">Planify</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ path('app_evenements_index') }}" aria-current="page" title="Evenement">Evenement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_participant_index') }}" title="Participant">Participant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_search') }}" title="Recherche">Recherche</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}" title="S'inscire">S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}" title="Se Connecter">Se connecter</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
