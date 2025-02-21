@@ -5,8 +5,55 @@
 {% block body %}
 
     <style>
-        h1{
-            color: #318ce7;
+        h1 {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .card {
+            margin-top: 20px;
+            border: 1px solid #007bff;
+            border-radius: 0.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            flex: 1;
+            text-align: right;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .info-value {
+            flex: 2;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        .container {
+            max-width: 800px;
         }
     </style>
 
@@ -15,35 +62,29 @@
 
         <a href="{{ path('app_evenements_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des événements">Revenir à la liste des événements</a>
 
+        <div class="card">
+            <div class="card-body">
+                <div class="info-container">
+                    <div class="info-label">Titre :</div>
+                    <div class="info-value">{{ evenement.titre }}</div>
+                </div>
+                <div class="info-container">
+                    <div class="info-label">Date et Heure :</div>
+                    <div class="info-value">{{ evenement.EventAt ? evenement.EventAt|date('Y-m-d H:i:s') : '' }}</div>
+                </div>
+                <div class="info-container">
+                    <div class="info-label">Lieu :</div>
+                    <div class="info-value">{{ evenement.lieu }}</div>
+                </div>
+                <div class="info-container">
+                    <div class="info-label">Description :</div>
+                    <div class="info-value">{{ evenement.description }}</div>
+                </div>
+            </div>
+        </div>
 
-    <table class="table table-bordered table-striped">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ evenement.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ evenement.titre }}</td>
-            </tr>
-            <tr>
-                <th>Date et Heure</th>
-                <td>{{ evenement.EventAt ? evenement.EventAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ evenement.lieu }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ evenement.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div>
-        {{ include('evenements/_delete_form.html.twig') }}
-    </div>
-    
+        <div class="mt-4">
+            {{ include('evenements/_delete_form.html.twig') }}
+        </div>
     </div>
 {% endblock %}

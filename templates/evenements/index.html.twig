@@ -37,10 +37,41 @@
 
         .table {
             margin-top: 20px;
+            border-collapse: separate;
+            border-spacing: 0 15px;
         }
 
         .table th, .table td {
             vertical-align: middle;
+            background-color: #f8f9fa;
+            border: none;
+            padding: 15px;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .table td:first-child {
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .table td:last-child {
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #e9ecef;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
         }
     </style>
 
@@ -49,7 +80,7 @@
 
         <a href="{{ path('app_evenements_new') }}" class="btn btn-primary my-2" title="Créer un événement">Créer un événement</a>
 
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
                     <th>Titre</th>
@@ -66,8 +97,8 @@
                     <td>{{ evenement.EventAt ? evenement.EventAt|date('d-m-Y H:i') : '' }}</td>
                     <td>{{ evenement.lieu }}</td>
                     <td>{{ evenement.description }}</td>
-                    <td class="d-flex">
-                        <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}" class="btn btn-outline-primary mx-2 button-nowrap" title="Voir le détail">Voir le détail</a>
+                    <td class="actions">
+                        <a href="{{ path('app_evenements_show', {'id': evenement.id}) }}" class="btn btn-outline-primary" title="Voir le détail">Voir le détail</a>
                         <a href="{{ path('app_evenements_edit', {'id': evenement.id}) }}" class="btn btn-outline-success" title="Modifier">Modifier</a>
                     </td>
                 </tr>

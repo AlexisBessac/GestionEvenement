@@ -5,42 +5,82 @@
 {% block body %}
 
     <style>
-        h1{
-            color: #318ce7;
+        h1 {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .card {
+            margin-top: 20px;
+            border: 1px solid #007bff;
+            border-radius: 0.5rem;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .info-label {
+            flex: 1;
+            text-align: right;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .info-value {
+            flex: 2;
+            text-align: left;
+            margin-left: 10px;
+        }
+
+        .container {
+            max-width: 800px;
         }
     </style>
 
     <div class="container py-5">
-    <h1 class="text-center">Participant</h1>
+        <h1 class="text-center">Participant</h1>
 
-    <a href="{{ path('app_participant_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des participants">Revenir à la liste des participants</a>
+        <a href="{{ path('app_participant_index') }}" class="btn btn-primary my-4" title="Revenir à la liste des participants">Revenir à la liste des participants</a>
 
+        <div class="card">
+            <div class="card-body">
+                <div class="info-container">
+                    <div class="info-label">Nom :</div>
+                    <div class="info-value">{{ participant.nom }}</div>
+                </div>
+                <div class="info-container">
+                    <div class="info-label">Prénom :</div>
+                    <div class="info-value">{{ participant.prenom }}</div>
+                </div>
+                <div class="info-container">
+                    <div class="info-label">Email :</div>
+                    <div class="info-value">{{ participant.email }}</div>
+                </div>
+            </div>
+        </div>
 
-    <table class="table table-bordered table-striped">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ participant.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ participant.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ participant.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ participant.email }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div>
-
-        {{ include('participant/_delete_form.html.twig') }}
-    </div>
-  
+        <div class="mt-4">
+            {{ include('participant/_delete_form.html.twig') }}
+        </div>
     </div>
 {% endblock %}
